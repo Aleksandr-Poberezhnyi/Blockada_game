@@ -3,7 +3,7 @@ from pygame import*
 widght = 1280
 height = 720
 
-background = image.load('images/background.jpg')
+background = transform.scale(image.load('images/background.jpg'),(widght,height))
 
 win = display.set_mode((widght, height))
 win.blit(background, (0,0))
