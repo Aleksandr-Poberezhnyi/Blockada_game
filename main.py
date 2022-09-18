@@ -1,4 +1,16 @@
 from pygame import*
+class settings(sprite.Sprite):
+    def __init__(self,x,y,w,h,speed,img):
+        super().__init__()
+
+        self.speed = speed
+        self.width = w
+        self.heaight = h
+        self.image = transform.scale(image.load(img),(self.width,self.height))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
 
 widght = 1280
 height = 720
