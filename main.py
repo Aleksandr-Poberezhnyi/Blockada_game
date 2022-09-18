@@ -1,5 +1,5 @@
 from pygame import*
-class settings(sprite.Sprite):
+class Settings(sprite.Sprite):
     def __init__(self,x,y,w,h,speed,img):
         super().__init__()
 
