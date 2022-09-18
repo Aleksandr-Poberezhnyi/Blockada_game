@@ -64,7 +64,7 @@ class Button():# sania
             
             
             
-class Enemy(Settings): #?
+class Enemy(Settings): #nik
     def __init__(self, x, y, w, h, speed, img, side):
         Settings.__init__(self, x, y, w, h, speed, img)
         
