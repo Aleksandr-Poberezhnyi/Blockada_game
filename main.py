@@ -11,10 +11,7 @@ class Settings(sprite.Sprite): # sania
         self.rect.x = x
         self.rect.y = y
 
-        
-        
-        
-     class Button():# sania
+class Button():# sania
         def __init__(self,color,x,y,w,h,text,fsize,txt_color):
 
             self.width = w
@@ -35,7 +32,10 @@ class Settings(sprite.Sprite): # sania
 
         def draw(self,shift_x,shift_y):#paint button with text in middle, text moved with shift_x and shift_y
             win.blit(self.image,(self.rect.x self.rect.y))
-            win.blit(self.txt_image, (self.rect.x + shift_x, self.rect.y + shift_y))
+            win.blit(self.txt_image, (self.rect.x + shift_x, self.rect.y + shift_y))        
+        
+        
+     
             
             
             
