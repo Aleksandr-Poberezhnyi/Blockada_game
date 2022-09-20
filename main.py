@@ -11,7 +11,7 @@ class Settings(sprite.Sprite): # sania
         self.rect.x = x
         self.rect.y = y
     def reset(self): 
-        win.blit(self.image, (self.rect.x, self.rect.y))
+        window.blit(self.image, (self.rect.x, self.rect.y))
         
 class Player(Settings):
     
