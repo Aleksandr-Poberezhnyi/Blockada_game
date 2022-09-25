@@ -251,3 +251,27 @@ while game:
 
     display.update()
     clock.tick(FPS)
+
+    for r in blocks_r:
+        if sprite.collide_rect(hero, r):
+            hero.rect.x = r.rect.x + hero.width
+
+        if sprite.collide_rect(en1, r):
+            en1.side = 'left'
+            en1.image = transform.scale(image.load(enemy_l), (en1.width, en1.heaight))
+
+        if sprite.collide_rect(en2, r):
+            en2.side = 'left'
+            en2.image = transform.scale(image.load(enemy_l), (en2.width, en2.heaight))
+
+    for l in blocks_l:
+        if sprite.collide_rect(hero, l):
+            hero.rect.x = l.rect.x - hero.width
+
+        if sprite.collide_rect(en1, l):
+            en1.side = 'right'
+            en1.image = transform.scale(image.load(enemy_r), (en1.width, en1.heaight))
+
+        if sprite.collide_rect(en2, l):
+            en2.side = 'right'
+            en2.image = transform.scale(image.load(enemy_r), (en2.width, en2.heaight))
