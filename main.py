@@ -168,6 +168,19 @@ chest = Settings(450, 130, 80, 80, 0, chest_close)
 
 camera = Camera(camera_configure, level_width, level_height)
 
+
+btn_start = Button((178, 34 , 34),470,300,280,70,"Start game",50,(255,255,255))
+btn_control = Button((178, 34 , 34),470,450,280,70,"How to play",50,(255,255,255))
+btn_exit = Button((178, 34 , 34),470,600,280,70,"exit game",50,(255,255,255))
+btn_menu = Button((178, 34 , 34),470,600,280,70,"back to menu",50,(255,255,255))
+btn_restart = Button((178, 34 , 34),470,450,280,70,"restart the game",50,(255,255,255))
+btn_continue = Button((178, 34 , 34),470,450,280,70,"continue the game",50,(255,255,255))
+btn_pause = Button((178, 34 , 34),1200,15,50,50,"I I",40,(255,255,255))
+
+
+
+
+
 blocks_r = []
 blocks_l = []
 coins = []
@@ -230,17 +243,6 @@ while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
-    
-    coin_c = font2.render(': ' + str(c_count), True, (255, 255, 255))
-    win.blit(transform.scale(image.load('image/coin.png')), (50,50), (10, 10))
-    win.blit(coin_c, (55, 15))
-
-    for c in coins:
-        if sprite.collide_rect(hero, c):
-            c_coll.play()
-            c_count += 1
-            coins.remove(c)
-            items.remove(c)
     
     en1.update()
     en2.update()
