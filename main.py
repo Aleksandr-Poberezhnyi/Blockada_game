@@ -1,4 +1,21 @@
 from pygame import*
+
+lavel = ["                                                            ",
+"                                                                     ",
+"       0   0                      0 0 0                              ",
+"       -------          0       -------                              ",
+"                        0                             0              ",
+"         0    0      ----------          0   0        -------        ",
+"         0    0                       --------                       ",
+"       --------                                    0                 ",
+"                                                ------               ",
+"                                                                     ",
+"                                   ----------                        ",
+"                                                                     ",
+"                                                               0 0 0 ",
+"---------------------------------------------------------------------",
+]
+
 class Settings(sprite.Sprite): # sania
     def __init__(self,x,y,w,h,speed,img):
         super().__init__()
@@ -204,33 +221,20 @@ for r in level:
     y+=40
     x = 0
 
-    
 while game:
+
+    time.delay(15)
+    win.blit(bg,(0,0))
+    keys = key.get_pressed()
+
     for e in event.get():
         if e.type == QUIT:
             game = False
     
-    if sprite.collide_rect(hero, chest) and k_chest == False:
-        win.blit(k_need, (450, 50))
+    en1.update()
+    en2.update()
 
-    if sprite.collide_rect(hero, chest) and k_chest == True and c_count != 15:
-        win.blit(e_tap, (500, 50))
-        if keys[K_e]:
-            o_chest = True
-            c_count += 10
-            chest.image = transform.scale(image.load(chest_open), (chest.width, chest.height))
-            cst_o.play()
-            k_door = True
+    hero.r_l()
 
-    if sprite.collide_rect(hero, portal1):
-                tp.play()
-                game = False
-
-    camera.update(hero)
-    for i in items:
-        win.blit(i.image, camera.apply(i))
-
-
-    
     display.update()
     clock.tick(FPS)
