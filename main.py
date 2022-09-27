@@ -212,7 +212,7 @@ for r in level:
             stairs.append(r2)
             items.add(r2)
 
-        if c == '':
+        if c == '0':
             r1 = Settings(x, y, 40, 40,0, coin)
             coins.append(r3)
             items.add(r3)
@@ -249,9 +249,8 @@ while game:
 
     hero.r_l()
 
-    display.update()
-    clock.tick(FPS)
-
+    
+#взаимодействие с блоками Люда
     for r in blocks_r:
         if sprite.collide_rect(hero, r):
             hero.rect.x = r.rect.x + hero.width
@@ -275,3 +274,12 @@ while game:
         if sprite.collide_rect(en2, l):
             en2.side = 'right'
             en2.image = transform.scale(image.load(enemy_r), (en2.width, en2.heaight))
+ # калькулятор монет Дима Чернов
+# поднимаемся по лестнице Большов Никита
+# собираем ключи Руслан
+# открываем двери ?
+# открываем сундук Дима Панасюк
+# касание портала
+# движение камеры
+    display.update()
+    clock.tick(FPS)
