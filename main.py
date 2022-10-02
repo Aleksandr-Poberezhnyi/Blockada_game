@@ -322,9 +322,32 @@ for r in level:
         if sprite.collide_rect(en2, l):
             en2.side = 'right'
             en2.image = transform.scale(image.load(enemy_r), (en2.width, en2.heaight))
- # калькулятор монет Дима Чернов
+# додаєио калькулятор зібраних монет
+    coin_c = font2.render(': ' + str(c_count), True,(255,255,255))
+    win.blit(transform.scale(image.load('images/coin.png'), (50,50)), (10,10))
+    win.blit(coin_c, (55,15))
+
+    for c in coin:
+        if sprite.collide_rect(hero, c):
+            c_coll.play()
+            c_count += 1
+            coins.remove(c)
+            items.remove(c)
 # поднимаемся по лестнице Большов Никита
-# собираем ключи Руслан
+    if sprite.collide_rect(hero, key1):
+        win.blit(e_tab, (500, 50))
+        if keys[K_e]
+            k_chest = True
+            key1.rect.y = -100
+            items.remove(key1)
+            k_up.play()
+    if sprite.collide_rect(hero, key2):
+        win.blit(e_tab, (500, 50))
+        if keys[K_e]:
+            k_door = True
+            key2.rect.y = -100
+            items.remove(key2)
+            k_up.play()
 # открываем двери ?
 # открываем сундук Дима Панасюк
 # касание портала
