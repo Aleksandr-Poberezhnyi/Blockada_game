@@ -1,5 +1,5 @@
 from pygame import*
-
+#список уровня
 lavel = ["                                                            ",
 "                                                                     ",
 "       0   0                      0 0 0                              ",
@@ -15,7 +15,7 @@ lavel = ["                                                            ",
 "                                                               0 0 0 ",
 "---------------------------------------------------------------------",
 ]
-
+# Главный класс
 class Settings(sprite.Sprite): # sania
     def __init__(self,x,y,w,h,speed,img):
         super().__init__()
@@ -29,7 +29,7 @@ class Settings(sprite.Sprite): # sania
         self.rect.y = y
     def reset(self): 
         window.blit(self.image, (self.rect.x, self.rect.y))
-        
+# Класс главный герой        
 class Player(Settings):
     
     def r_l(self):
@@ -57,7 +57,7 @@ class Player(Settings):
         if keys [K_s]:
             self.rect.y += self.speed        
 
-class Button():# sania
+class Button():# Класс кнопок
         def __init__(self,color,x,y,w,h,text,fsize,txt_color):
 
             self.width = w
@@ -80,7 +80,7 @@ class Button():# sania
             win.blit(self.image,(self.rect.x self.rect.y))
             win.blit(self.txt_image, (self.rect.x + shift_x, self.rect.y + shift_y))        
         
- class Player(Settings): #?
+ class Player(Settings): #Класс главный герой 
     
     def r_l(self):
         global mana, img, f
@@ -108,7 +108,7 @@ class Button():# sania
             self.rect.y += self.speed       
      
             
-            
+# Класс врагов            
             
 class Enemy(Settings): #nik
     def __init__(self, x, y, w, h, speed, img, side):
@@ -124,7 +124,10 @@ class Enemy(Settings): #nik
         if self.side == 'left':
             self.rect.x += self.speed
             
-            
+# Класс камера и функция к ней
+
+# Класс Нана
+# Переменные картинок
 hero_r = "images/sprite1_r.png"
 hero_l = "images/sprite1.png"
 
@@ -144,9 +147,12 @@ nothing = "images/nothing.png"
 power = "images/mana.png"
 widght = 1280
 height = 720
+#  Музыка
+
+# добавляем текст в игре
 
 background = transform.scale(image.load('images/background.jpg'),(widght,height))
-
+# Создание окна
 win = display.set_mode((widght, height))
 win.blit(background, (0,0))
 
@@ -168,7 +174,7 @@ chest = Settings(450, 130, 80, 80, 0, chest_close)
 
 camera = Camera(camera_configure, level_width, level_height)
 
-
+# Создание кнопок
 btn_start = Button((178, 34 , 34),470,300,280,70,"Start game",50,(255,255,255))
 btn_control = Button((178, 34 , 34),470,450,280,70,"How to play",50,(255,255,255))
 btn_exit = Button((178, 34 , 34),470,600,280,70,"exit game",50,(255,255,255))
@@ -180,7 +186,7 @@ btn_pause = Button((178, 34 , 34),1200,15,50,50,"I I",40,(255,255,255))
 
 
 
-
+# Создание списков и групп спрайтов (перенести в функцию перезапуска
 blocks_r = []
 blocks_l = []
 coins = []
@@ -192,7 +198,7 @@ items = sprite.Group()
 FPS = 60
 clock = time.Clock()
 game = True
-
+# Рисуем уровень (перенести в функцию перезапуска
 x=y=0
 
 for r in level:
@@ -233,7 +239,9 @@ for r in level:
         x +=40
     y+=40
     x = 0
-
+# Функция перезапуска игры
+# Создание спрайтов (перенести в функцию перезапуска
+# Добавляем спрайты в группу
 while game:
 
     time.delay(15)
@@ -283,3 +291,8 @@ while game:
 # движение камеры
     display.update()
     clock.tick(FPS)
+#Функция меню
+# Правила игры
+# Пауза в игре
+# Перезапуск игры
+# Уровень пройден
