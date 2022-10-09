@@ -336,12 +336,99 @@ for r in level:
             k_up.play()
 # открываем двери ?
 # открываем сундук Дима Панасюк
+    if sprite.spritecollide(en1, manas, True):
+        en1.rect.y = -150
+        items.remove(mana)
+        kick.play()
+    if sprite.spritecollide(en2, manas, True):
+        en2.rect.y = -150
+        items.remove(mana)
+        kick.play()
+    if sprite.spritecollide(en3, manas, True):
+        en3.rect.y = -150
+        items.remove(mana)
+        kick.play()
+    if sprite.spritecollide(en4, manas, True):
+        en4.rect.y = -150
+        items.remove(mana)
+        kick.play()
 # касание портала
 # движение камеры
     display.update()
     clock.tick(FPS)
 #Функция меню
-# Правила игры
+def rules():
+    rule = True
+    mixer.music.stop()
+
+    while rule:
+
+        for e in event.get():
+            if e.type == QUIT:
+                rule = False
+
+        time.delay(15)
+        
+        
+        win.blit(bg, (0, 0 ))
+        win.blit(gname, (320, 70 ))
+        win.blit(wasd_b, (50, 250 ))
+        win.blit(space_b, (50, 350 ))
+        win.blit(e_b, (50, 450 ))
+
+        btn_menu.draw(0, 5)
+
+        pos_x, pos_y = mouse.get_pos()
+
+        for e in event.get():
+            if btn_menu.rect.collidepoint((pos_, pos_y)) and e.type == MOUSEBUTTONDOWN:
+                click.play()
+                rule = False
+                menu()
+
+            if e.type == QUIT:
+                rule = False
+
+        display.update()
 # Пауза в игре
-# Перезапуск игры
+def restart(): # пepeзanyck
+
+    over = True
+
+    mixer.music.stop()
+    mixer.music.load('sounds/game_over.ogg')
+    mixer.music.play()
+
+    while over:
+
+        for e in event.get(): # закриваємо вікно гри
+            if e.type == QUIT:
+                over = False
+
+        time.delay(15)
+
+        win.fill((0, 0, 0))
+        win.blit(lose, (350, 200))
+
+        btn_restart.draw(60, 5)
+        btn_menu.draw(0, 5)
+
+        pos_x, pos_y = mouse.get_pos()
+
+        for e in event.get():
+            # перезапускаемо гру
+            if btn_restart.rect.collidepoint((pos_x, pos_y)) and e.type == MOUSEBUTTONDOWN:
+                click.play()
+                mixer.music.stop()
+                over = False
+                res_pos()
+                lvl_1()
+            # меню
+            if btn_menu.rect.collidepoint((pos_x, pos_y)) and e.type == MOUSEBUTTONDOWN: 
+                click.play()   
+                over = False               
+                menu()
+
+
+        display.update()
 # Уровень пройден
