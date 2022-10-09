@@ -79,7 +79,33 @@ class Button():# Класс кнопок
         def draw(self,shift_x,shift_y):#paint button with text in middle, text moved with shift_x and shift_y
             win.blit(self.image,(self.rect.x self.rect.y))
             win.blit(self.txt_image, (self.rect.x + shift_x, self.rect.y + shift_y))        
-        
+            
+            
+class Camera(object):
+    def __init__(self, camera-func, width, height):
+        self.camera_func = camera_func
+        self.state = Rect(0,0, width, height)
+
+    def apply(self, target):
+        return target.rect.move(self.state.topleft)
+
+    def update(self, target):
+        self.state = self.camera_func(self.state, target.rect)
+
+def camera_configure(camera, target_rect):
+    l, t, _, _= target_rect
+    _, _, w, h = camera
+    l, t = 1 + W / 2, -t + H / 2
+
+    l = min(0,1)
+    l = max(-(camera.width - W), 1)
+    t = max(-(camera.width - H), t)
+    t = min(0, t)
+
+    return Rect(l, t, w, h)
+
+
+            
 class Mana(Settings):
     def __init__(self, x, y, w, h, speed, img, side):
         Settings.__init__(self, x, y, w, h, speed, img)
@@ -93,6 +119,7 @@ class Mana(Settings):
             self.rect.x -= self.speed
         if self.side == 'right':
             self.rict.x += self.speed
+            
 
 mana = Mana(0, -100, 25, 25, 35, power, 'left')
             
