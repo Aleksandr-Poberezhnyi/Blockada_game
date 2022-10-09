@@ -194,7 +194,6 @@ for r in blocks_r:
         en4.image = transform.scale(image.load(enemy_r),(en3.width,en4.height)) 
         
         
-# Класс Нана
 # Переменные картинок
 hero_r = "images/sprite1_r.png"
 hero_l = "images/sprite1.png"
