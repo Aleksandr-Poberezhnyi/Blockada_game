@@ -1,0 +1,10 @@
+mixer.init()
+
+fire_s = mixer.Sound('sounds/fire.ogg')
+kick = mixer.Sound('sounds/kick.ogg')
+k_up = mixer.Sound('sounds/k_coll.ogg')
+c_coll = mixer.Sound('sounds/c_coll.ogg')
+d_o = mixer.Sound('sounds/lock.ogg')
+tp = mixer.Sound('sounds/teleport.ogg')
+click = mixer.Sound('sounds/click.ogg')
+cst_o = mixer.Sound('sounds/chest.ogg')
