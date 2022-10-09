@@ -280,6 +280,21 @@ platforms = []
 
 items = sprite.Group()
 
+items.add(door)
+items.add(key1)
+items.add(key2)
+items.add(portal)
+items.add(chest)
+items.add(en1)
+items.add(en2)
+items.add(en3)
+items.add(en4)
+items.add(hero)
+
+k_door = False
+k_chest = False
+o_chest = False
+
 FPS = 60
 clock = time.Clock()
 game = True
