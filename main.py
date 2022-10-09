@@ -308,7 +308,7 @@ for r in level:
         if sprite.collide_rect(en2, l):
             en2.side = 'right'
             en2.image = transform.scale(image.load(enemy_r), (en2.width, en2.heaight))
-# додаєио калькулятор зібраних монет
+
     coin_c = font2.render(': ' + str(c_count), True,(255,255,255))
     win.blit(transform.scale(image.load('images/coin.png'), (50,50)), (10,10))
     win.blit(coin_c, (55,15))
@@ -334,8 +334,29 @@ for r in level:
             key2.rect.y = -100
             items.remove(key2)
             k_up.play()
-# открываем двери ?
-# открываем сундук Дима Панасюк
+if sprite.collide_rect(hero,door) and k_door == False:
+    win.blit(k_need, (450,50))
+    hero.rect.x = door.rect.x - 47
+
+if sprie.collide_rect(hero, door) and k_door == True:
+    hero.rect.x = door.rect.x - 47
+    win.blit(e_tap,(500,50))
+    if keys[K_e]:
+        door.rect.x += 1500
+        d_o.play()
+        k_door = False
+if sprite.collide_rect(hero,chest) and k_chest == False:
+    win.blit(k_need, (450,50))
+
+
+if sprie.collide_rect(hero, chest) and k_chest == True:
+    win.blit(e_tap,(500,50))
+    if keys[K_e]:
+        o_chest = True
+        c_count += 10
+        chest.image = transform.scale(image.load(chest_open),(chest.width,chest.height))
+        cst_o.play()
+        k_chest = True
     if sprite.spritecollide(en1, manas, True):
         en1.rect.y = -150
         items.remove(mana)
