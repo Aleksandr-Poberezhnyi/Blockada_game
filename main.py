@@ -77,7 +77,7 @@ class Button():# Класс кнопок
             self.txt_image = font.Font('font/impact.tff',fsize).render(text, True,txt_color)
 
         def draw(self,shift_x,shift_y):#paint button with text in middle, text moved with shift_x and shift_y
-            win.blit(self.image,(self.rect.x self.rect.y))
+            win.blit(self.image,(self.rect.x, self.rect.y))
             win.blit(self.txt_image, (self.rect.x + shift_x, self.rect.y + shift_y))        
             
             
