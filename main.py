@@ -82,7 +82,7 @@ class Button():# Класс кнопок
             
             
 class Camera(object):
-    def __init__(self, camera-func, width, height):
+    def __init__(self, camera_func, width, height):
         self.camera_func = camera_func
         self.state = Rect(0,0, width, height)
 
