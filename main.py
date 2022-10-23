@@ -121,7 +121,6 @@ class Mana(Settings):
             self.rict.x += self.speed
             
 
-mana = Mana(0, -100, 25, 25, 35, power, 'left')
             
 class Enemy(Settings): #nik
     def __init__(self, x, y, w, h, speed, img, side):
@@ -136,54 +135,7 @@ class Enemy(Settings): #nik
             self.rect.x -= self.speed
         if self.side == 'left':
             self.rect.x += self.speed
-            def lvl_1():
-    mixer.music.load('sounds/game.ogg')
-    mixer.music.play()
-    game = True
-    while game: 
-        time.delay(5)
-        win.blit(bg, (0,0))
-        keys = key.get_pressed()
-        pos_x, pos_y = mouse.get_pos()
 
-        for e in event.get():
-            if e.type == QUIT:
-                game = False
-            if btn_pause.rectcollidepoint((pos_x, pos_y)) and e.type == MOUSEBUTTONDOWN:
-                    click.play()
-                    mixer.music.stop()
-                    pause()
-                    game = False
-        en1.update()
-        en2.update()
-        en3.update()
-        en4.update()
-        hero.r_1()
-        mana.update()
-        btn_pause.draw(10 , 0)
-        collider()
-        if keys [K_SPACE]:
-            mana.rect.x,mana.rect.y = hero.rect.centerx, hero.rect.top
-            manas.add(mana)
-            items.add(mana)
-            fire_s.play()
-
-        camera.update(hero)
-        for i in items:
-            win.blit(i.image, camera.apply(i))
-
-        if sprite.collide_rect(hero, en1) or sprite.collide_rect(hero, en2) or sprite.collide_rect(hero, en3) or sprite.collide_rect(hero, en4):
-            restart()
-            game = False
-        if sprite.collide_rect(hero, portal):
-            tv.play()
-            lvl_end()
-            game = False
-        display.update()
-menu()
-
-        
-        
 # Переменные картинок
 hero_r = "images/sprite1_r.png"
 hero_l = "images/sprite1.png"
@@ -207,16 +159,17 @@ height = 720
 
 mixer.init()
 
-fire_s = mixer.Sound('sounds/fire.ogg')
-kick = mixer.Sound('sounds/kick.ogg')
-k_up = mixer.Sound('sounds/k_coll.ogg')
-c_coll = mixer.Sound('sounds/c_coll.ogg')
-d_o = mixer.Sound('sounds/lock.ogg')
-tp = mixer.Sound('sounds/teleport.ogg')
-click = mixer.Sound('sounds/click.ogg')
-cst_o = mixer.Sound('sounds/chest.ogg')
+#fire_s = mixer.Sound('sounds/fire.ogg')
+#kick = mixer.Sound('sounds/kick.ogg')
+#k_up = mixer.Sound('sounds/k_coll.ogg')
+#c_coll = mixer.Sound('sounds/c_coll.ogg')
+#d_o = mixer.Sound('sounds/lock.ogg')
+#tp = mixer.Sound('sounds/teleport.ogg')
+#click = mixer.Sound('sounds/click.ogg')
+#cst_o = mixer.Sound('sounds/chest.ogg')
 
 # добавляем текст в игре
+mana = Mana(0, -100, 25, 25, 35, power, 'left')
 
 background = transform.scale(image.load('images/background.jpg'),(widght,height))
 # Создание окна
@@ -435,7 +388,7 @@ for r in level:
 # поднимаемся по лестнице Большов Никита
     if sprite.collide_rect(hero, key1):
         win.blit(e_tab, (500, 50))
-        if keys[K_e]
+        if keys[K_e]:
             k_chest = True
             key1.rect.y = -100
             items.remove(key1)
@@ -519,7 +472,7 @@ def menu():
                 res_pos()
                 lvl_1()
             
-            if btn_control..rect.collidepoint((pos_x, pos_y)) and e.type == MOUSEBUTTONDOWN:
+            if btn_control.rect.collidepoint((pos_x, pos_y)) and e.type == MOUSEBUTTONDOWN:
                 click.play()
                 menu = False
                 rules()
@@ -601,7 +554,7 @@ def pause(): # nayзa
                 res_pos()
                 mixer.music.stop()
                 stop = False
-                1v1_1()
+                lvl_1()
             # меню
             if btn_menu.rect.collidepoint((pos_x, pos_y)) and e.type == MOUSEBUTTONDOWN:
                 click.play()
@@ -691,10 +644,10 @@ def lvl_1():
             tv.play()
             lvl_end()
             game = False
-        display.update()
-menu()                
+            menu()                
+    display.update()
                 
-        display.update()
+
 def lvl_end():
     stop = True
 
@@ -711,7 +664,7 @@ def lvl_end():
         time.display(15)
 
         win.fill((0,0,0))
-        win.blit.(done, (300,200))
+        win.blit(done, (300,200))
 
         btn_restart.draw(60, 5)
         btn_menu.darw(0, 5)
@@ -732,5 +685,48 @@ def lvl_end():
                 mixer.music.stop()
                 stop = False
                 menu()
-        
+def lvl_1():
+    #mixer.music.load('sounds/game.ogg')
+    #mixer.music.play()
+    game = True
+    while game: 
+        time.delay(5)
+        win.blit(bg, (0,0))
+        keys = key.get_pressed()
+        pos_x, pos_y = mouse.get_pos()
+
+        for e in event.get():
+            if e.type == QUIT:
+                game = False
+            if btn_pause.rectcollidepoint((pos_x, pos_y)) and e.type == MOUSEBUTTONDOWN:
+                    click.play()
+                    mixer.music.stop()
+                    pause()
+                    game = False
+        en1.update()
+        en2.update()
+        en3.update()
+        en4.update()
+        hero.r_1()
+        mana.update()
+        btn_pause.draw(10 , 0)
+        collider()
+        if keys [K_SPACE]:
+            mana.rect.x,mana.rect.y = hero.rect.centerx, hero.rect.top
+            manas.add(mana)
+            items.add(mana)
+            fire_s.play()
+
+        camera.update(hero)
+        for i in items:
+            win.blit(i.image, camera.apply(i))
+
+        if sprite.collide_rect(hero, en1) or sprite.collide_rect(hero, en2) or sprite.collide_rect(hero, en3) or sprite.collide_rect(hero, en4):
+            restart()
+            game = False
+        if sprite.collide_rect(hero, portal):
+            tv.play()
+            lvl_end()
+            game = False
         display.update()
+menu()
