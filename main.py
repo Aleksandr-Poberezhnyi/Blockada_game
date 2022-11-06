@@ -44,10 +44,10 @@ class Player(Settings):
         if keys [K_a]:
             self.rect.x -= self.speed
             f = 1
-            mana.side = 'left'
+            #mana.side = 'left'
         if keys [K_d]:
             self.rect.x += self.speed
-            mana.side = 'right' 
+            #mana.side = 'right' 
             f = 0
         
         if f ==1:
