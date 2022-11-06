@@ -2,21 +2,24 @@ from pygame import*
 #список уровня
 level = ["                                                            ",
 "                                                                     ",
-"       0   0                      0 0 0                              ",
-"       -------          0       -------                              ",
-"                        0                             0              ",
-"         0    0      ----------          0   0        -------        ",
-"         0    0                       --------/                      ",
-"       --------                               /     0                ",
-"                                                /------              ",
-"                                                /                    ",
-"                                   ---------/                        ",
-"                                            /                        ",
-"                                              / ----------           ",
-"                                              /                      ",
-"                                   /----------                       ",
-"                                   /                                 ",
-"                 0      0          /                            0 0 0",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                                                                     ",
+"                 0      0          /                                 ",
 "---------------------------------------------------------------------",
 ]
 font.init()
@@ -344,12 +347,12 @@ def collider(): # тут прописані всі взаємодії між о�
     win.blit(transform.scale(image.load('images/coin.png'), (50,50)), (10,10))
     win.blit(coin_c, (55,15))
 
-    #for c in coin:
-        #if sprite.collide_rect(hero, c):
-            #c_coll.play()
-            #c_count += 1
-            #coins.remove(c)
-            #items.remove(c)
+    for c in coins:
+        if sprite.collide_rect(hero, c):
+            c_coll.play()
+            c_count += 1
+            coins.remove(c)
+            items.remove(c)
 # поднимаемся по лестнице Большов Никита
     if sprite.collide_rect(hero, key1):
         win.blit(e_tab, (500, 50))
@@ -624,7 +627,7 @@ def lvl_1():
         collider()
         if keys [K_SPACE]:
             mana.rect.x,mana.rect.y = hero.rect.centerx, hero.rect.top
-            if f ==1:
+            if f ==1: 
                 mana.side = "left"
             if f == 0:
                 mana.side = "right"
