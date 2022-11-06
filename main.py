@@ -624,7 +624,7 @@ def lvl_1():
         collider()
         if keys [K_SPACE]:
             mana.rect.x,mana.rect.y = hero.rect.centerx, hero.rect.top
-            if f1 ==1
+            if f1 ==1:
                 mana.side = "left"
             if f0 == 0:
                 mana.side = "right"
