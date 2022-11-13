@@ -405,8 +405,8 @@ def collider(): # тут прописані всі взаємодії між о�
 def menu():
 
     menu = True
-    #mixer.music.load("sounds/menu.ogg")
-    #mixer.music.play()
+    mixer.music.load("sounds/menu.ogg")
+    mixer.music.play()
 
     while menu:
 
@@ -648,5 +648,3 @@ def lvl_1():
             game = False
         display.update()
 menu()
-
-
